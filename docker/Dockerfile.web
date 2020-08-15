@@ -2,10 +2,13 @@ FROM alpine:latest
 
 COPY docker/entry.install.sh /tmp/entry.install.sh
 COPY docker/entry.run.sh /tmp/entry.run.sh
+COPY docker/entry.intall.nvm.sh /tmp/entry.intall.nvm.sh
 
 RUN chmod +x /tmp/entry.install.sh \
- && chmod +x /tmp/entry.run.sh
+ && chmod +x /tmp/entry.install.sh \
+ && chmod +x /tmp/entry.intall.nvm.sh
 
+RUN /tmp/entry.intall.nvm.sh
 RUN /tmp/entry.install.sh
 
 ENTRYPOINT [ "/tmp/entry.run.sh" ]
