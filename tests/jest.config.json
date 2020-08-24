@@ -1,0 +1,5 @@
+{
+    "rootDir": ".",
+    "testEnvironment": "node",
+    "testRegex": ".js$"
+}

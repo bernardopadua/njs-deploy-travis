@@ -21,4 +21,4 @@ RUN /njs-deploy-travis/docker/entry.install.sh \
  && npm install
 
 WORKDIR /njs-deploy-travis
-ENTRYPOINT [ "./docker/entry.run.sh" ]
+#ENTRYPOINT [ "/njs-deploy-travis/docker/entry.run.sh" ]
