@@ -1,8 +1,5 @@
 #!/bin/ash
 
-export NVM_DIR=./.nvm
-source ./.nvm/nvm.sh
+node_lts=./.nvm/versions/node/$(ls -1 ./.nvm/versions/node | tail -n1)/bin/node
 
-nvm use --lts
-
-node server.js
+${node_lts} server.js
