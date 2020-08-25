@@ -3,6 +3,9 @@ node_js:
     - lts/*
 dist: xenial
 
+services:
+    - docker
+
 branches:
     only:
     - master
