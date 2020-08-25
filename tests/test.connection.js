@@ -6,9 +6,11 @@ describe("Test express connection.", () => {
         return request(app)
             .get("/")
             .expect(200)
-            .end(function(res){
-                res.text.should.match(/\>Hello, World/);
-                done();
+            .expect(function(res){
+                const secondWord = process.env['NDT_WORD_TEST'] ? process.env['NDT_WORD_TEST'] : 'World';
+                if(!res.text.match(new RegExp('\>Hello, '+secondWord))){
+                    throw Error('Error trying to match default text.');
+                }
             });
     });
 });
