@@ -5,7 +5,7 @@ release="webtest"
 docker_image="registry.heroku.com"
 
 echo "Building image..."
-docker build -t "${docker_image}/${app}/${release}" -f ./docker/Dockerfile.webash . &> /dev/null
+docker build -t "${docker_image}/${app}/${release}" -f ./docker/Dockerfile.webash .
 result_build=$?
 
 if [ "${result_build}" -ne "0" ]; then
