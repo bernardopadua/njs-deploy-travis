@@ -15,8 +15,19 @@ if [ "${result_build}" -ne "0" ]; then
 
 fi
 
+echo "Futher test... Node version find..."
+docker run "${docker_image}/${app}/${release}" ls ./.nvm
+result_node_ls=$?
+
+docker run "${docker_image}/${app}/${release}" ls ./.nvm/versions
+result_node_ls=$?
+
+docker run "${docker_image}/${app}/${release}" ls ./.nvm/versions/node
+result_node_ls=$?
+
 echo "Testing image..."
 docker run "${docker_image}/${app}/${release}" ./docker/run.tests.sh
+result_test=$?
 
 if [ "${result_test}" -ne "0" ]; then
 
