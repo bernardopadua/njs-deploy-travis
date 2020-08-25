@@ -3,7 +3,8 @@ FROM alpine:latest
 COPY . /njs-deploy-travis/
 
 RUN chmod +x /njs-deploy-travis/docker/entry.install.sh \
- && chmod +x /njs-deploy-travis/docker/entry.run.sh
+ && chmod +x /njs-deploy-travis/docker/entry.run.sh \
+ && chmod +x /njs-deploy-travis/docker/run.tests.sh
 
 RUN /njs-deploy-travis/docker/entry.install.sh \
  && mkdir -p $HOME/njs-deploy-travis/.nvm/.cache \

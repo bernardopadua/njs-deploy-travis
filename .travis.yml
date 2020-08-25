@@ -5,10 +5,6 @@ branches:
     only:
     - master
 
-addons:
-    packages:
-        - docker
-
 stages:
     - test
     - ':build: and :push:'
@@ -16,13 +12,11 @@ stages:
 jobs:
     include:
     - stage: test
-        script: npm test
+      script: bash ./scripts/build.test.image.sh
     - stage: ':build: and :push:'
-        script: ./script/docker.build.push.sh
-
-deploy:
-    - provider: heroku
-    api_key: $HEROKU_API_KEY
-    app: njs-deploy-travis
-    on:
-        branch: master
+      script: ./scripts/docker.build.push.sh
+      deploy:
+        provider: heroku
+        api_key: $HEROKU_API_KEY
+        app: njs-deploy-travis
+        on: master
