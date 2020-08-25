@@ -18,11 +18,20 @@ fi
 echo "List local files..."
 ls -a
 
+echo "-------------------"
+ls -a ~
+
+echo "echoing NVM DIRRR >>>>"
+echo $NVM_DIR
+ls -a $NVM_DIR
+
+echo "----------------------"
+
 echo "Futher test... Node version find..."
-docker run "${docker_image}/${app}/${release}" ls -a
+docker run -v `~/.nvm`:`./.nvm` "${docker_image}/${app}/${release}" ls -a
 
 echo "Testing image..."
-docker run "${docker_image}/${app}/${release}" ./docker/run.tests.sh
+docker run -v `~/.nvm`:`./.nvm` "${docker_image}/${app}/${release}" ./docker/run.tests.sh
 result_test=$?
 
 if [ "${result_test}" -ne "0" ]; then
