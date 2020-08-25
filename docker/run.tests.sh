@@ -1,9 +1,9 @@
 #!/bin/ash
 
-r_path_nvm=$(realpath ./.nvm)
+versions_node=/.local/.nvm/versions/node
 
-npm_lts=$HOME/.local/.nvm/versions/node/$(ls -1 ./.nvm/versions/node | tail -n1)/bin/npm
-node_lts=$HOME/.local/.nvm/versions/node/$(ls -1 ./.nvm/versions/node | tail -n1)/bin
+npm_lts=${versions_node}/$(ls -1 ${versions_node} | tail -n1)/bin/npm
+node_lts=${versions_node}/$(ls -1 ${versions_node} | tail -n1)/bin
 
 echo "Using node from path ${node_lts}"
 
