@@ -16,8 +16,7 @@ if [ "${result_build}" -ne "0" ]; then
 fi
 
 echo "Testing image..."
-docker run "${docker_image}/${app}/${release}" ./docker/run.tests.sh 1> /dev/null 2> /dev/null
-result_test=$?
+docker run "${docker_image}/${app}/${release}" ./docker/run.tests.sh
 
 if [ "${result_test}" -ne "0" ]; then
 
