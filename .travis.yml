@@ -21,7 +21,7 @@ jobs:
     - stage: test
       script: bash ./scripts/build.test.image.sh
     - stage: ':build: and :push:'
-      script: ./scripts/docker.build.push.sh
+      script: bash ./scripts/docker.build.push.sh
       deploy:
         provider: heroku
         api_key: $HEROKU_API_KEY
