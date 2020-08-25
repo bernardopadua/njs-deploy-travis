@@ -16,7 +16,7 @@ if [ "${result_build}" -ne "0" ]; then
 fi
 
 echo "Futher test... Node version find..."
-docker run "${docker_image}/${app}/${release}" ls
+docker run "${docker_image}/${app}/${release}" ls -a
 
 echo "Testing image..."
 docker run "${docker_image}/${app}/${release}" ./docker/run.tests.sh
