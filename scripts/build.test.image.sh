@@ -15,6 +15,9 @@ if [ "${result_build}" -ne "0" ]; then
 
 fi
 
+echo "List local files..."
+ls -a
+
 echo "Futher test... Node version find..."
 docker run "${docker_image}/${app}/${release}" ls -a
 
